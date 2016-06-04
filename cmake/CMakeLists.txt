@@ -23,7 +23,7 @@ else (MSVC)
   set(protobuf_WITH_ZLIB_DEFAULT ON)
 endif (MSVC)
 option(protobuf_WITH_ZLIB "Build with zlib support" ${protobuf_WITH_ZLIB_DEFAULT})
-set(protobuf_DEBUG_POSTFIX "d"
+set(protobuf_DEBUG_POSTFIX ""
   CACHE STRING "Default debug postfix")
 
 # Path to main configure script
@@ -137,6 +137,7 @@ else (MSVC)
   # When building with "make", "lib" prefix will be added automatically by
   # the build tool.
   set(LIB_PREFIX)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 endif (MSVC)
 
 include(libprotobuf-lite.cmake)
